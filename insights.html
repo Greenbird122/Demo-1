@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insights — ATIH | Notes From the Workshop</title>
+  <meta name="description" content="Practical notes from the ATIH team on prototyping, choosing between web and mobile, and what connected hardware really costs to run.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ATIH — Austine Tech Innovation Hub">
+  <meta property="og:title" content="Insights — Notes from the workshop">
+  <meta property="og:description" content="Practical notes on prototyping, choosing between web and mobile, and what connected hardware really costs to run.">
+  <meta property="og:image" content="https://austinetech.dev/images/web-development.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body data-page="insights">
+
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <a class="brand-block" href="index.html" aria-label="ATIH home">
+      <span class="brand-name">ATIH</span>
+      <span class="brand-full">Austine Tech Innovation Hub</span>
+    </a>
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services/index.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+        <li class="nav-item"><a class="nav-link nav-cta" href="contact.html">Contact us</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-label"></span>
+    </button>
+  </header>
+
+  <main id="main-content">
+
+    <div class="page-header">
+      <p class="breadcrumb"><a href="index.html">Home</a> / Insights</p>
+      <h1 class="page-title">Notes from the workshop.</h1>
+      <p class="page-intro">What we've learned building products for farms, businesses and everything in between.</p>
+    </div>
+
+    <section class="section section-article-list">
+      <div class="article-list">
+
+        <article class="article-card" data-animate>
+          <p class="article-meta">Prototyping</p>
+          <h2 class="article-title">When to prototype before you build</h2>
+          <div class="article-body">
+            <p>A prototype answers one question cheaply. Not ten questions — one. The teams who waste money on prototypes are the ones who treat them as a rough draft of the whole product; the teams who benefit treat them as an experiment with a pass/fail answer.</p>
+            <p>Prototype when the question is expensive to get wrong: will farmers carry this device every day? Will customers trust a face-verification step? Will the sensor survive the rain? Those questions cost little to test and a fortune to guess.</p>
+            <p>Skip the prototype when the question is already answered — a marketing site, a CRUD platform, anything where the risk is execution rather than discovery. There, the fastest path is simply to build it well.</p>
+            <p>Our rule from three years of field work: if a wrong assumption would cost more than the prototype, build the prototype. That is the whole decision.</p>
+          </div>
+        </article>
+
+        <article class="article-card" data-animate style="--motion-delay: 80ms;">
+          <p class="article-meta">Mobile and web</p>
+          <h2 class="article-title">Web app or native mobile: choosing right</h2>
+          <div class="article-body">
+            <p>The honest trade-off is distribution versus capability. A web app reaches anyone with a browser — no store review, no install friction, one codebase. A native app reaches the phone's hardware: GPS in the background, the camera, offline storage, push notifications that actually arrive.</p>
+            <p>Ask the question most teams skip: where is your user when they use this? A logistics dashboard is used at a desk — build web. A bag-recovery tool is used in a panic, on the street, maybe offline — that wants native.</p>
+            <p>Kenya-specific reality: data costs matter. A web app that streams 2&nbsp;MB on every visit loses to a native app that syncs once over Wi-Fi. If your users are on metered connections, weight that heavily.</p>
+            <p>And the middle path is real: many of our builds start as a solid web app, then add a thin native wrapper only for the two or three features that truly need hardware access. You don't have to choose everything on day one — you just have to choose deliberately.</p>
+          </div>
+        </article>
+
+        <article class="article-card" data-animate style="--motion-delay: 160ms;">
+          <p class="article-meta">IoT</p>
+          <h2 class="article-title">What IoT actually costs to maintain</h2>
+          <div class="article-body">
+            <p>The device is the cheapest part. This surprises everyone the first time. The build gets the headlines; the run eats the budget.</p>
+            <p>The recurring costs, from our own deployments: connectivity (SIM and data for every unit, every month), power (solar kits and battery replacements in the field), physical failure (housing cracks, connectors corrode — plan for a percentage of units dying per year), and the dashboard itself (hosting, updates, and someone who answers when it goes down).</p>
+            <p>A rough planning rule from running sensors in real conditions: budget roughly the cost of the device again, every year, to keep it running. If that number breaks the business case, the business case was never real.</p>
+            <p>Which is why we push clients to prototype with maintenance in mind from the start: pick components you can actually source locally, design the housing for the weather it will meet, and build the dashboard so one person can monitor a hundred units — not ten.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <h2 class="cta-title">Rather talk than read?</h2>
+      <p class="cta-text">Bring us the question instead. We answer it directly.</p>
+      <p class="cta-actions"><a class="button-primary" href="contact.html">Contact us</a></p>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <p class="footer-brand-name">ATIH — Austine Tech Innovation Hub</p>
+      <p class="footer-tagline">Innovating Today, Empowering Tomorrow</p>
+    </div>
+    <div class="footer-columns">
+      <div class="footer-column">
+        <p class="footer-heading">Company</p>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="index.html">Home</a></li>
+          <li><a class="footer-link" href="about.html">About</a></li>
+          <li><a class="footer-link" href="team.html">Team</a></li>
+          <li><a class="footer-link" href="contact.html">Contact us</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <p class="footer-heading">Services</p>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="services/web-development.html">Website development</a></li>
+          <li><a class="footer-link" href="services/app-development.html">App development</a></li>
+          <li><a class="footer-link" href="services/iot-solutions.html">IoT solutions</a></li>
+          <li><a class="footer-link" href="services/saas-development.html">SaaS development</a></li>
+          <li><a class="footer-link" href="services/prototype-design.html">Prototype design</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <p class="footer-heading">Resources</p>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="work.html">Work</a></li>
+          <li><a class="footer-link" href="insights.html">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <p class="footer-heading">Legal</p>
+        <ul class="footer-list">
+          <li><a class="footer-link" href="privacy.html">Privacy policy</a></li>
+          <li><a class="footer-link" href="terms.html">Terms of service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/in/austine-wandera-b14523344/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      <a href="https://github.com/Greenbird122" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+      <a href="https://x.com/austinetech" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://www.youtube.com/@austinetech" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.tiktok.com/@austinetech" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+    </div>
+    <div class="footer-legal">
+      <p class="footer-copyright">&copy; 2026 ATIH (Austine Tech Innovation Hub). All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
