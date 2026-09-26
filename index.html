@@ -19,16 +19,32 @@
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header">
-    <a class="brand-block" href="index.html" aria-label="ATIH home">
-      <span class="brand-name">ATIH</span>
-      <span class="brand-full">Austine Tech Innovation Hub</span>
+    <a class="brand-block" href="index.html" aria-label="ATIH — Austine Tech Innovation Hub">
+      <div class="brand-scene" aria-hidden="true">
+        <div class="brand-card">
+          <div class="brand-face brand-front">
+            <img class="brand-logo-img" src="images/logo-austine-hub.jpg" alt="ATIH Logo" width="66" height="66">
+          </div>
+          <div class="brand-face brand-back">
+            <span class="brand-slogan">
+              <span class="slogan-line">Innovating Today,</span>
+              <span class="slogan-line">Empowering Tomorrow</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">ATIH</span>
+        <span class="brand-full">Austine Tech Innovation Hub</span>
+      </div>
     </a>
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <ul class="nav-list">
         <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
         <li class="nav-item"><a class="nav-link" href="services/index.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="work.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
         <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
         <li class="nav-item"><a class="nav-link nav-cta" href="contact.html">Contact us</a></li>
       </ul>
@@ -44,11 +60,11 @@
     <section class="hero">
       <div class="hero-bg" aria-hidden="true">
         <div class="hero-bg-layer active" style="background-image: url('images/team-working-together.jpg')"></div>
-        <div class="hero-bg-layer" style="background-image: url('images/web-development.jpg')"></div>
-        <div class="hero-bg-layer" style="background-image: url('images/app-UI.jpg')"></div>
+        <div class="hero-bg-layer" style="background-image: url('images\gallery-prototyping-3.jpg')"></div>
+        <div class="hero-bg-layer" style="background-image: url('images\phone-0019.jpg')"></div>
         <div class="hero-bg-layer" style="background-image: url('images/gallery-prototyping-1.jpg')"></div>
         <div class="hero-bg-layer" style="background-image: url('images/gallery-workspace-1.jpg')"></div>
-        <div class="hero-bg-layer" style="background-image: url('images/ai-generated-banner.png')"></div>
+        <div class="hero-bg-layer" style="background-image: url('images\phone-0024.jpg')"></div>
       </div>
       <div class="hero-inner">
         <h1 class="hero-title typewriter-title">
@@ -64,21 +80,23 @@
           <a class="button-secondary" href="work.html">See our work</a>
         </p>
       </div>
-      <div class="sdg-ticker" aria-label="UN Sustainable Development Goals we support">
-        <div class="sdg-track">
-          <span>No Poverty</span><span>Zero Hunger</span><span>Good Health &amp; Well-being</span><span>Quality Education</span><span>Gender Equality</span><span>Clean Water &amp; Sanitation</span><span>Affordable &amp; Clean Energy</span><span>Decent Work &amp; Economic Growth</span><span>Industry, Innovation &amp; Infrastructure</span><span>Reduced Inequalities</span>
-          <span>No Poverty</span><span>Zero Hunger</span><span>Good Health &amp; Well-being</span><span>Quality Education</span><span>Gender Equality</span><span>Clean Water &amp; Sanitation</span><span>Affordable &amp; Clean Energy</span><span>Decent Work &amp; Economic Growth</span><span>Industry, Innovation &amp; Infrastructure</span><span>Reduced Inequalities</span>
-        </div>
-      </div>
     </section>
+
 
     <!-- ============ INTRO ============ -->
     <section class="section section-intro">
-      <div class="section-head" data-animate>
-        <span class="accent-bar"></span>
-        <h2 class="section-title">Introduction</h2>
-        <p class="intro-text">ATIH is a 20+ person product development company based in Kenya, shipping for clients worldwide. You bring the idea — we design it, prototype it, build it, and stay on after launch. Websites, mobile apps, IoT systems and SaaS platforms — one accountable team.</p>
-        <p class="intro-more"><a class="text-link" href="about.html">More about who we are</a></p>
+      <div class="intro-grid">
+        <div class="intro-content" data-animate>
+          <span class="accent-bar"></span>
+          <h2 class="section-title">Introduction</h2>
+          <p class="intro-text">ATIH is a technology company built in Kenya, delivering digital products for clients worldwide. We take your idea from concept to live product — designing, prototyping, building and supporting it long after launch. Websites, mobile apps, IoT systems and SaaS platforms — one accountable team, no handoffs.</p>
+          <p class="intro-more"><a class="text-link" href="about.html">More about who we are</a></p>
+        </div>
+        <div class="intro-media" data-animate style="--motion-delay: 90ms;">
+          <figure class="intro-figure">
+            <img src="images/ai-generated-banner.png" alt="ATIH innovation and technology" loading="lazy" decoding="async" width="448" height="600">
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -98,7 +116,58 @@
       </div>
     </section>
 
-    <!-- ============ HORIZONTAL SCROLL GALLERY ============ -->
+    <!-- ============ SDGs ============ -->
+    <section class="section sdg-section" aria-labelledby="sdg-heading">
+      <div class="section-head">
+        <span class="accent-bar"></span>
+        <h2 class="section-title" id="sdg-heading">SDGs We Champion</h2>
+        <p class="section-text">ATIH's technology solutions are intentionally designed to drive progress on the UN's Sustainable Development Goals. Every product we ship contributes to a more equitable, sustainable Kenya and Africa.</p>
+      </div>
+      <div class="sdg-grid">
+        <div class="sdg-card" data-animate>
+          <span class="sdg-number">1</span>
+          <span class="sdg-name">No Poverty</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:40ms">
+          <span class="sdg-number">2</span>
+          <span class="sdg-name">Zero Hunger</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:80ms">
+          <span class="sdg-number">3</span>
+          <span class="sdg-name">Good Health &amp; Well-being</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:120ms">
+          <span class="sdg-number">4</span>
+          <span class="sdg-name">Quality Education</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:160ms">
+          <span class="sdg-number">5</span>
+          <span class="sdg-name">Gender Equality</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:200ms">
+          <span class="sdg-number">6</span>
+          <span class="sdg-name">Clean Water &amp; Sanitation</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:240ms">
+          <span class="sdg-number">7</span>
+          <span class="sdg-name">Affordable &amp; Clean Energy</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:280ms">
+          <span class="sdg-number">8</span>
+          <span class="sdg-name">Decent Work &amp; Economic Growth</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:320ms">
+          <span class="sdg-number">9</span>
+          <span class="sdg-name">Industry, Innovation &amp; Infrastructure</span>
+        </div>
+        <div class="sdg-card" data-animate style="--motion-delay:360ms">
+          <span class="sdg-number">10</span>
+          <span class="sdg-name">Reduced Inequalities</span>
+        </div>
+      </div>
+    </section>
+
+
     <section class="scroll-gallery-section" data-horizontal-scroll>
       <div class="scroll-gallery-sticky">
         <div class="scroll-gallery-head">
@@ -371,7 +440,8 @@
       <div class="footer-column">
         <p class="footer-heading">Resources</p>
         <ul class="footer-list">
-          <li><a class="footer-link" href="work.html">Work</a></li>
+          <li><a class="footer-link" href="work.html">Projects</a></li>
+          <li><a class="footer-link" href="gallery.html">Gallery</a></li>
           <li><a class="footer-link" href="insights.html">Insights</a></li>
         </ul>
       </div>
