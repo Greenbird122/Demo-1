@@ -11,7 +11,7 @@
   <meta property="og:site_name" content="ATIH — Austine Tech Innovation Hub">
   <meta property="og:title" content="Gallery — ATIH">
   <meta property="og:description" content="On the bench and in the field: hardware prototyping, software design, and real-world deployments.">
-  <meta property="og:image" content="https://austinetech.dev/images/gallery-workspace-1.jpg">
+  <meta property="og:image" content="https://austinetech.dev/images/services/workspace-hardware.jpg">
   <meta name="twitter:card" content="summary_large_image">
 </head>
 <body data-page="gallery">
@@ -23,7 +23,7 @@
       <div class="brand-scene" aria-hidden="true">
         <div class="brand-card">
           <div class="brand-face brand-front">
-            <img class="brand-logo-img" src="images/logo-austine-hub.jpg" alt="ATIH Logo" width="66" height="66">
+            <img class="brand-logo-img" src="images/brand/logo.jpg" alt="ATIH Logo" width="66" height="66">
           </div>
           <div class="brand-face brand-back">
             <span class="brand-slogan">
@@ -62,7 +62,434 @@
     </header>
 
     <section class="section section-gallery">
-      <!-- Gallery content will be populated here -->
+      <!-- Filter controls -->
+      <div class="gallery-filter-bar" data-animate>
+        <div class="gallery-filters" role="tablist" aria-label="Filter gallery by category">
+          <button class="gallery-filter-btn active" type="button" role="tab" aria-selected="true" data-filter="all">All (<span class="filter-count">36</span>)</button>
+          <button class="gallery-filter-btn" type="button" role="tab" aria-selected="false" data-filter="hardware">Hardware &amp; Lab</button>
+          <button class="gallery-filter-btn" type="button" role="tab" aria-selected="false" data-filter="iot">IoT &amp; Field</button>
+          <button class="gallery-filter-btn" type="button" role="tab" aria-selected="false" data-filter="products">Products &amp; Software</button>
+          <button class="gallery-filter-btn" type="button" role="tab" aria-selected="false" data-filter="team">Team &amp; Studio</button>
+          <button class="gallery-filter-btn" type="button" role="tab" aria-selected="false" data-filter="events">Events &amp; Awards</button>
+        </div>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- HARDWARE & LAB -->
+        <article class="gallery-card" data-category="hardware" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/services/prototype-bench.jpg" alt="Hardware prototyping bench at ATIH" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Hardware &amp; Lab</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Prototyping Bench</h3>
+            <p class="gallery-card-text">Oscilloscopes, soldering tools, and sensor diagnostic equipment.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="hardware" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/services/prototype-testing.jpg" alt="Testing circuits on the bench" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Hardware &amp; Lab</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Circuit Testing Station</h3>
+            <p class="gallery-card-text">Power consumption analysis and stress testing of prototype hardware.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="hardware" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/services/prototype-circuit.jpg" alt="Custom PCB board components" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Hardware &amp; Lab</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">PCB Design &amp; Layout</h3>
+            <p class="gallery-card-text">Custom PCB prototypes developed for low-power remote sensors.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="hardware" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/services/workspace-hardware.jpg" alt="ATIH hardware workstation" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Hardware &amp; Lab</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Hardware Development Lab</h3>
+            <p class="gallery-card-text">Where concept sketches turn into physical, working electronic units.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="hardware" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/services/workspace-collab.jpg" alt="Engineering collaboration table" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Hardware &amp; Lab</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Engineering Workstation</h3>
+            <p class="gallery-card-text">Firmware flashing and multi-device telemetry synchronization.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="hardware" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/services/workspace-desks.jpg" alt="Studio workstations" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Hardware &amp; Lab</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Studio Development Floor</h3>
+            <p class="gallery-card-text">Cross-functional team desks connecting hardware, web, and mobile engineers.</p>
+          </div>
+        </article>
+
+        <!-- IOT & FIELD -->
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-1.jpg" alt="Field sensor unit" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Field Sensor Node 01</h3>
+            <p class="gallery-card-text">Solar-backed telemetry node transmitting live weather and soil metrics.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-2.jpg" alt="Environmental monitoring unit" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Environmental Monitor 02</h3>
+            <p class="gallery-card-text">Ruggedized outdoor enclosure for continuous agricultural tracking.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-3.jpg" alt="Agricultural sensor array" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Agri-Telemetry Probe 03</h3>
+            <p class="gallery-card-text">Multi-depth probe array measuring soil moisture and temperature.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-4.jpg" alt="Industrial gateway node" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Gateway Telemetry Hub 04</h3>
+            <p class="gallery-card-text">Long-range cellular and radio gateway for remote rural installations.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-5.jpg" alt="Multi-channel telemetry unit" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Multi-Channel Controller 05</h3>
+            <p class="gallery-card-text">Programmable logic unit built for water pump and valve automation.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-6.jpg" alt="Compact power-optimized sensor" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Ultra-Low-Power Unit 06</h3>
+            <p class="gallery-card-text">Coin-cell optimized sensor with 2+ years field battery life.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-7.jpg" alt="Weather sensor module" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Micro-Weather Station 07</h3>
+            <p class="gallery-card-text">Barometric, humidity and wind speed collection unit.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-8.jpg" alt="Firmware development module" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Mesh Network Node 08</h3>
+            <p class="gallery-card-text">Peer-to-peer relay node extending sensor coverage without cellular towers.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/iot/iot-sensor-9.jpg" alt="Live deployment module" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Field Deployment Kit 09</h3>
+            <p class="gallery-card-text">All-weather field kit deployed for farm monitoring.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/projects/clothbin.jpg" alt="Smart Waste System enclosure" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Smart Waste Management Node</h3>
+            <p class="gallery-card-text">Ultrasonic fill-level detection with real-time pickup dispatch alerts.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="iot" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/projects/wardrobe.jpg" alt="Connected hardware storage prototype" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">IoT &amp; Field</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Connected Storage Prototype</h3>
+            <p class="gallery-card-text">RFID access and climate-regulated hardware storage unit.</p>
+          </div>
+        </article>
+
+        <!-- PRODUCTS & SOFTWARE -->
+        <article class="gallery-card" data-category="products" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/projects/mkulima-alert.jpg" alt="Mkulima Alert project interface" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Products</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Mkulima Alert</h3>
+            <p class="gallery-card-text">Daily weather forecasts via SMS, in local dialects, on 2G feature phones.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="products" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/projects/tulia-tag.jpg" alt="Tulia Tag application UI" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Products</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Tulia Tag Asset Tracking</h3>
+            <p class="gallery-card-text">Real-time GPS luggage recovery app with facial verification.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="products" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/projects/bunyala-agriclimate.jpg" alt="Bunyala Agri-Climate website on screen" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Products</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Bunyala Agri-Climate Platform</h3>
+            <p class="gallery-card-text">Public web platform for Lake Victoria circular economy enterprise.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="products" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/projects/decopolis.jpg" alt="Decopolis Enterprises platform" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Products</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Decopolis Enterprises Platform</h3>
+            <p class="gallery-card-text">Aquaculture product showcase and sustainable fishing operations platform.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="products" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/services/web-development.jpg" alt="Web application frontend code" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Products</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Web Application Architecture</h3>
+            <p class="gallery-card-text">High-performance portals, dashboards, and enterprise web solutions.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="products" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/services/app-ui.jpg" alt="Mobile app user interface" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Products</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Mobile App Interfaces</h3>
+            <p class="gallery-card-text">Clean, responsive interfaces designed for iOS and Android.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="products" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/projects/agriculture-field.jpg" alt="Agricultural field deployment" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Products</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Agri-Tech Field Operations</h3>
+            <p class="gallery-card-text">Live verification of telemetry data on operational farms.</p>
+          </div>
+        </article>
+
+        <!-- TEAM & STUDIO -->
+        <article class="gallery-card" data-category="team" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/team/team-group.jpg" alt="ATIH engineering team" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Team &amp; Studio</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">The ATIH Team</h3>
+            <p class="gallery-card-text">Engineers, designers, and hardware specialists based in Kenya.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="team" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/team/studio-launch.jpg" alt="Innovation studio launch event" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Team &amp; Studio</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Studio Launch</h3>
+            <p class="gallery-card-text">Opening our dedicated hardware prototyping and design space.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="team" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/team/team-outdoors.jpg" alt="ATIH team working in the field" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Team &amp; Studio</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Field Strategy Session</h3>
+            <p class="gallery-card-text">Taking engineering discussions out of the lab and into the field.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="team" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/team/austine-wandera.jpg" alt="Austine Wandera portrait" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Team &amp; Studio</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Austine Wandera</h3>
+            <p class="gallery-card-text">Founder &amp; Lead Systems Engineer.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="team" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/team/bevan.jpg" alt="Bevan portrait" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Team &amp; Studio</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Bevan</h3>
+            <p class="gallery-card-text">Head of Systems Architecture &amp; Hardware.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="team" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/team/paul.jpg" alt="Paul portrait" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Team &amp; Studio</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Paul</h3>
+            <p class="gallery-card-text">Senior Software &amp; Full-Stack Engineer.</p>
+          </div>
+        </article>
+
+        <!-- EVENTS & AWARDS -->
+        <article class="gallery-card" data-category="events" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/events/winning-award-1.jpg" alt="ATIH receiving tech award" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Events &amp; Awards</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">National Innovation Award</h3>
+            <p class="gallery-card-text">Recognition for impact-driven IoT and software solutions.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="events" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/events/winning-award-2.jpg" alt="Award trophy presentation" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Events &amp; Awards</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Engineering Excellence</h3>
+            <p class="gallery-card-text">Honoring sustainable technology solutions built in Kenya.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="events" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/events/event-presentation.jpg" alt="Presenting project to audience" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Events &amp; Awards</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Demo Day Pitch</h3>
+            <p class="gallery-card-text">Demonstrating live hardware prototypes to partners and investors.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="events" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/events/event-summit.jpg" alt="Tech summit session" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Events &amp; Awards</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">East Africa Tech Summit</h3>
+            <p class="gallery-card-text">Panel session discussing emerging IoT and cloud architectures.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="events" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/events/kempinski.jpg" alt="Keynote at Kempinski" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Events &amp; Awards</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Industry Keynote</h3>
+            <p class="gallery-card-text">Speaking on local product development and hardware innovation.</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-category="events" data-animate>
+          <figure class="gallery-card-media">
+            <img src="images/events/tree-planting.jpg" alt="Tree planting community day" loading="lazy" decoding="async">
+            <span class="gallery-card-tag">Events &amp; Awards</span>
+          </figure>
+          <div class="gallery-card-body">
+            <h3 class="gallery-card-title">Sustainability &amp; CSR Day</h3>
+            <p class="gallery-card-text">Community tree planting initiative contributing to climate action.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Lightbox Modal -->
+      <div class="gallery-lightbox" id="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+          <button class="lightbox-close" type="button" aria-label="Close preview">&times;</button>
+          <img class="lightbox-img" src="" alt="">
+          <div class="lightbox-caption">
+            <h3 class="lightbox-title"></h3>
+            <p class="lightbox-desc"></p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
