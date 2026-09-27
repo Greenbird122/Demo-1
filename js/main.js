@@ -255,11 +255,76 @@
     var sections = document.querySelectorAll(".freeze-section[data-freeze]");
     if (!sections.length) return;
 
-    function updateAll() {
-      Array.prototype.forEach.call(sections, function (section) {
+    var mobileTimers = [];
+
+    function clearMobileTimers() {
+      mobileTimers.forEach(function (t) { clearInterval(t); });
+      mobileTimers = [];
+    }
+
+    function setActiveImage(section, idx) {
+      var images = section.querySelectorAll(".freeze-image");
+      var dots = section.querySelectorAll(".freeze-dot");
+      images.forEach(function (img, i) {
+        img.classList.toggle("active", i === idx);
+      });
+      dots.forEach(function (dot, i) {
+        dot.classList.toggle("active", i === idx);
+      });
+    }
+
+    function initMobileSection(section) {
+      var dots = section.querySelectorAll(".freeze-dot");
+      var images = section.querySelectorAll(".freeze-image");
+      var visual = section.querySelector(".freeze-visual");
+      if (!images.length || !visual) return;
+
+      var currentIdx = 0;
+      setActiveImage(section, 0);
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener("click", function (e) {
+          e.stopPropagation();
+          currentIdx = i;
+          setActiveImage(section, currentIdx);
+        });
+      });
+
+      var startX = 0;
+      visual.addEventListener("touchstart", function (e) {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      visual.addEventListener("touchend", function (e) {
+        var endX = e.changedTouches[0].clientX;
+        var diff = startX - endX;
+        if (Math.abs(diff) > 35) {
+          if (diff > 0) {
+            currentIdx = (currentIdx + 1) % images.length;
+          } else {
+            currentIdx = (currentIdx - 1 + images.length) % images.length;
+          }
+          setActiveImage(section, currentIdx);
+        }
+      }, { passive: true });
+
+      var timer = setInterval(function () {
+        if (window.innerWidth <= 820) {
+          var rect = section.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            currentIdx = (currentIdx + 1) % images.length;
+            setActiveImage(section, currentIdx);
+          }
+        }
+      }, 3500);
+      mobileTimers.push(timer);
+    }
+
+    function updateDesktop() {
+      if (window.innerWidth <= 820) return;
+      sections.forEach(function (section) {
         var visual = section.querySelector(".freeze-visual");
         var images = section.querySelectorAll(".freeze-image");
-        var dots = section.querySelectorAll(".freeze-dot");
         if (!visual || !images.length) return;
 
         var rect = section.getBoundingClientRect();
@@ -274,26 +339,36 @@
 
         var idx = Math.floor(progress * total);
         idx = Math.max(0, Math.min(total - 1, idx));
-
-        images.forEach(function (img, i) {
-          img.classList.toggle("active", i === idx);
-        });
-        dots.forEach(function (dot, i) {
-          dot.classList.toggle("active", i === idx);
-        });
+        setActiveImage(section, idx);
       });
     }
 
-    var ticking = false;
-    function onScroll() {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(function () { updateAll(); ticking = false; });
+    function setup() {
+      clearMobileTimers();
+      if (window.innerWidth <= 820) {
+        sections.forEach(initMobileSection);
+      } else {
+        updateDesktop();
+      }
     }
 
-    updateAll();
+    setup();
+
+    var ticking = false;
+    function onScroll() {
+      if (window.innerWidth > 820) {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () { updateDesktop(); ticking = false; });
+      }
+    }
+
+    var resizeTimer = null;
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll, { passive: true });
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(setup, 200);
+    });
   }
 
     /* ---------- Social sticky bar ---------- */

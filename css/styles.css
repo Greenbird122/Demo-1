@@ -1618,12 +1618,13 @@ main { padding-top: 0; }
    Freeze-section responsive
    ========================================================================== */
 @media (max-width: 820px) {
-  /* freeze-section on mobile & tablet: comfortable viewport framing and zero dead tail whitespace */
+  /* freeze-section on mobile & tablet: clean compact card with zero whitespace */
   .freeze-section {
     display: flex;
     flex-direction: column;
-    min-height: 140vh;
-    padding: var(--space-4) var(--space-3);
+    min-height: 0;
+    height: auto;
+    padding: var(--space-4) var(--space-3) var(--space-5);
   }
   .freeze-sticky {
     position: static;
@@ -1631,13 +1632,36 @@ main { padding-top: 0; }
     margin-bottom: var(--space-3);
   }
   .freeze-visual {
-    position: sticky;
-    top: 5.5rem; /* sits below mobile header */
-    height: 42vh;
+    position: relative;
+    top: auto;
+    height: 280px;
     max-height: 320px;
     min-height: 240px;
     width: 100%;
     margin-top: 0;
+    overflow: hidden;
+  }
+  .freeze-indicator {
+    position: absolute;
+    bottom: 0.85rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    margin-bottom: 0;
+    background: rgba(17, 19, 24, 0.72);
+    padding: 5px 10px;
+    backdrop-filter: blur(4px);
+  }
+  .freeze-dot {
+    width: 8px;
+    height: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    cursor: pointer;
+  }
+  .freeze-dot.active {
+    background: var(--accent);
+    border-color: var(--accent);
   }
   .social-sticky { bottom: var(--space-2); left: var(--space-2); flex-direction: row; gap: 0.3rem; padding: 0.4rem 0.6rem; }
 
@@ -1681,13 +1705,14 @@ main { padding-top: 0; }
 
 @media (max-width: 560px) {
   .freeze-section {
-    min-height: 130vh;
-    padding: var(--space-4) var(--space-2);
+    min-height: 0;
+    height: auto;
+    padding: var(--space-3) var(--space-2) var(--space-4);
   }
   .freeze-visual {
-    height: 38vh;
-    max-height: 270px;
-    min-height: 210px;
+    height: 230px;
+    max-height: 260px;
+    min-height: 190px;
   }
   .social-sticky a { width: 30px; height: 30px; }
   .social-sticky svg { width: 15px; height: 15px; }
