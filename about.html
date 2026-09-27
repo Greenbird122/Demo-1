@@ -23,7 +23,7 @@
       <div class="brand-scene" aria-hidden="true">
         <div class="brand-card">
           <div class="brand-face brand-front">
-            <img class="brand-logo-img" src="images/brand/logo.jpg" alt="ATIH Logo" width="66" height="66">
+            <img class="brand-logo-img" src="images/brand/logo.jpg" srcset="images/brand/logo-132.jpg 132w, images/brand/logo-264.jpg 264w, images/brand/logo.jpg 1254w" sizes="66px" alt="ATIH Logo" width="66" height="66">
           </div>
           <div class="brand-face brand-back">
             <span class="brand-slogan">
@@ -59,7 +59,7 @@
     <div class="page-header">
       <p class="breadcrumb"><a href="index.html">Home</a> / About</p>
       <h1 class="page-title">Builders, not talkers.</h1>
-      <p class="page-intro">A 20+ person product development company, based in Kenya, shipping for clients worldwide.</p>
+      <p class="page-intro">A 20+ person product development company based in Kenya, shipping for clients worldwide.</p>
     </div>
 
     <!-- ============ STORY ============ -->
@@ -68,10 +68,15 @@
         <span class="accent-bar"></span>
         <h2 class="section-title">Why we exist</h2>
       </div>
-      <div class="story-body" data-animate>
-        <p>Plenty of people have ideas. Very few can ship them. Drawings are easy to find; talk is cheap. Building — sensors that survive the field, apps people use daily, platforms that stay up — is the hard part. That gap is where ATIH lives.</p>
-        <p>We started in 2023 with prototype and IoT work for farms and local enterprises, where a working model in the field beats any presentation. It taught us a habit we never dropped: build the real thing early, test it honestly, improve it with the people who use it.</p>
-        <p>Three years later we're 20+ people across web, mobile, SaaS and connected hardware. Different scale, same habit.</p>
+      <div class="story-grid">
+        <div class="story-body" data-animate>
+          <p>Plenty of people have ideas. Very few can ship them. Talk is cheap; drawings are easy to find. Building — sensors that survive the field, apps people use daily, platforms that stay up — is the hard part. That gap is where ATIH lives.</p>
+          <p>We started in 2023 with prototype and IoT work for farms and local enterprises, where a working model in the field beats any presentation. It taught us a habit we never dropped: build the real thing early, test it honestly, improve it with the people who use it.</p>
+          <p>Three years later we're 20+ people across web, mobile, SaaS and connected hardware. Different scale, same habit.</p>
+        </div>
+        <figure class="story-figure" data-animate style="--motion-delay: 90ms;">
+          <img src="images/team/team-outdoors.jpg" srcset="images/team/team-outdoors-480.jpg 480w, images/team/team-outdoors-960.jpg 960w, images/team/team-outdoors-1440.jpg 1440w, images/team/team-outdoors.jpg 1500w" sizes="(max-width: 820px) 100vw, 45vw" alt="The ATIH team working in the field with a client" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
@@ -100,10 +105,16 @@
       <div class="mission-grid">
         <div class="mission-card" data-animate>
           <h3 class="mission-card-title">Mission</h3>
+          <figure class="mission-media">
+            <img src="images/services/workspace-collab.jpg" srcset="images/services/workspace-collab-480.jpg 480w, images/services/workspace-collab-960.jpg 960w, images/services/workspace-collab-1440.jpg 1440w, images/services/workspace-collab.jpg 1920w" sizes="(max-width: 820px) 100vw, 50vw" alt="ATIH engineers and a client building together" loading="lazy" decoding="async">
+          </figure>
           <p class="mission-card-text">Give any business, anywhere, the kind of product development normally reserved for companies with in-house engineering departments.</p>
         </div>
         <div class="mission-card" data-animate style="--motion-delay: 80ms;">
           <h3 class="mission-card-title">Vision</h3>
+          <figure class="mission-media">
+            <img src="images/events/event-presentation.jpg" srcset="images/events/event-presentation-480.jpg 480w, images/events/event-presentation-960.jpg 960w, images/events/event-presentation-1440.jpg 1440w, images/events/event-presentation.jpg 1600w" sizes="(max-width: 820px) 100vw, 50vw" alt="ATIH presenting a finished product to an audience" loading="lazy" decoding="async">
+          </figure>
           <p class="mission-card-text">A world where a good idea becomes a working product — no matter who holds it or where they live.</p>
         </div>
       </div>
@@ -167,9 +178,9 @@
         </ol>
       </div>
       <div class="freeze-visual">
-        <img class="freeze-image active" src="images/services/workspace-hardware.jpg" alt="ATIH process discovery" loading="lazy">
-        <img class="freeze-image" src="images/services/prototype-bench.jpg" alt="ATIH process prototype" loading="lazy">
-        <img class="freeze-image" src="images/services/prototype-testing.jpg" alt="ATIH process support" loading="lazy">
+        <img class="freeze-image active" src="images/services/workspace-hardware.jpg" srcset="images/services/workspace-hardware-480.jpg 480w, images/services/workspace-hardware-960.jpg 960w, images/services/workspace-hardware-1440.jpg 1440w, images/services/workspace-hardware.jpg 1920w" sizes="(max-width: 820px) 100vw, 50vw" alt="ATIH process discovery" loading="lazy">
+        <img class="freeze-image" src="images/services/prototype-bench.jpg" srcset="images/services/prototype-bench-480.jpg 480w, images/services/prototype-bench-960.jpg 960w, images/services/prototype-bench-1440.jpg 1440w, images/services/prototype-bench.jpg 1920w" sizes="(max-width: 820px) 100vw, 50vw" alt="ATIH process prototype" loading="lazy">
+        <img class="freeze-image" src="images/services/prototype-testing.jpg" srcset="images/services/prototype-testing-480.jpg 480w, images/services/prototype-testing-960.jpg 960w, images/services/prototype-testing-1440.jpg 1440w, images/services/prototype-testing.jpg 1920w" sizes="(max-width: 820px) 100vw, 50vw" alt="ATIH process support" loading="lazy">
         <div class="freeze-indicator">
           <span class="freeze-dot active"></span><span class="freeze-dot"></span><span class="freeze-dot"></span>
         </div>
@@ -179,7 +190,7 @@
     <!-- ============ CTA ============ -->
     <section class="cta-band matrix-band">
       <div class="matrix-image-strip">
-        <img src="images/projects/bunyala-agriclimate.jpg" alt="" loading="lazy">
+        <img src="images/projects/bunyala-agriclimate.jpg" srcset="images/projects/bunyala-agriclimate-480.jpg 480w, images/projects/bunyala-agriclimate-960.jpg 960w, images/projects/bunyala-agriclimate-1440.jpg 1440w, images/projects/bunyala-agriclimate.jpg 1680w" sizes="160px" alt="" loading="lazy">
       </div>
       <h2 class="cta-title">The products we've shipped say it better than this page can.</h2>
       <p class="cta-text">See what we built for clients, then bring us yours.</p>

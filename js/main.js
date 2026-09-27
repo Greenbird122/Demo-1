@@ -122,16 +122,30 @@
     counters.forEach(function (c) { observer.observe(c); });
   }
 
-  /* ---------- Header shadow on scroll ---------- */
+  /* ---------- Header shadow on scroll ----------
+     rAF-throttled and state-guarded: the scroll event fires far faster than
+     we can paint, and writing the same style every event forces needless work. */
   function initHeader() {
     var header = document.querySelector(".site-header");
     if (!header) return;
 
+    var shadowed = null;
     function update() {
-      header.style.boxShadow = window.scrollY > 8 ? "0 8px 24px rgba(10,22,40,0.08)" : "none";
+      var on = window.scrollY > 8;
+      if (on === shadowed) return;
+      shadowed = on;
+      header.style.boxShadow = on ? "0 8px 24px rgba(10,22,40,0.08)" : "none";
     }
+
+    var ticking = false;
+    function schedule() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { update(); ticking = false; });
+    }
+
     update();
-    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("scroll", schedule, { passive: true });
   }
 
   /* ---------- Carousels: scroll-snap + controls ----------
@@ -386,94 +400,6 @@
     document.body.insertAdjacentHTML("beforeend", html);
   }
 
-  /* ---------- Matrix rain in the dark bands ----------
-     Also targets .matrix-band for the glyph rain layer. */
-  function initMatrixRain() {
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    /* dense glyph rain reads as noise on a small screen: skip it there */
-    if (window.matchMedia && window.matchMedia("(max-width: 640px)").matches) return;
-
-    var bands = document.querySelectorAll(".cta-band, .site-footer, .matrix-band");
-    if (!bands.length) return;
-
-    if ("IntersectionObserver" in window) {
-      var rainObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !entry.target.dataset.rain) {
-            entry.target.dataset.rain = "1";
-            spawnRain(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      bands.forEach(function (b) { rainObserver.observe(b); });
-    } else {
-      bands.forEach(spawnRain);
-    }
-  }
-
-  function spawnRain(host) {
-    var canvas = document.createElement("canvas");
-    canvas.className = "matrix-rain";
-    host.insertBefore(canvas, host.firstChild);
-
-    var ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    var w, h, columns, drops, rafId = null;
-    var GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
-    var FONT = 14;
-    var CELL = 14;
-
-    function resize() {
-      w = canvas.width = host.clientWidth;
-      h = canvas.height = host.clientHeight;
-      columns = Math.max(1, Math.floor(w / CELL));
-      drops = [];
-      for (var i = 0; i < columns; i++) drops.push(Math.floor(Math.random() * (h / CELL)));
-    }
-
-    function draw() {
-      /* transparent canvas: clear each frame, no accumulating veil.
-         The band's own rotating gradient shows through the rain. */
-      ctx.clearRect(0, 0, w, h);
-      ctx.font = FONT + "px monospace";
-      for (var i = 0; i < columns; i++) {
-        var headY = drops[i] * CELL;
-        for (var t = 0; t < 4; t++) {
-          var ty = headY - t * CELL;
-          if (ty < 0 || ty > h) continue;
-          var alpha = t === 0 ? 0.55 + Math.random() * 0.3 : 0.4 - t * 0.1;
-          ctx.fillStyle = "rgba(127, 199, 154, " + alpha.toFixed(2) + ")";
-          ctx.fillText(GLYPHS[(Math.random() * GLYPHS.length) | 0], i * CELL, ty);
-        }
-        if (headY > h && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-        if (drops[i] * CELL > h + CELL * 4) drops[i] = 0;
-      }
-      rafId = requestAnimationFrame(draw);
-    }
-
-    function start() { if (rafId === null) rafId = requestAnimationFrame(draw); }
-    function stop()  { if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; } }
-
-    resize();
-    start();
-
-    /* pause when the band leaves the viewport - no wasted frames */
-    if ("IntersectionObserver" in window) {
-      new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
-      }, { threshold: 0.05 }).observe(host);
-
-      var t = null;
-      window.addEventListener("resize", function () {
-        clearTimeout(t);
-        t = setTimeout(function () { resize(); }, 200);
-      });
-    }
-  }
-
   /* ---------- Horizontal scroll gallery ----------
      Vertical scroll through the section drives the gallery track left-to-right. */
   function initHorizontalGallery() {
@@ -496,12 +422,42 @@
       track.style.transform = "translateX(" + (-progress * maxScroll) + "px)";
     }
 
-    window.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update, { passive: true });
+    /* read layout inside rAF, not in the event handler: measuring
+       getBoundingClientRect/scrollWidth on every scroll forces a sync layout */
+    var ticking = false;
+    function schedule() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { update(); ticking = false; });
+    }
+
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
     update();
   }
 
-  /* ---------- Contact form (mailto) ----------
+  /* ---------- Animated bands: only run the gradient spin while on screen ----------
+     The bands otherwise repaint every frame for the life of the page, even when
+     scrolled away. Pausing off-screen keeps the look and drops the cost. */
+  function initAnimatedBands() {
+    var bands = document.querySelectorAll(".stats-band, .cta-band");
+    if (!bands.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      bands.forEach(function (b) { b.classList.add("in-view"); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle("in-view", entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+
+    bands.forEach(function (b) { observer.observe(b); });
+  }
+
+  /* ---------- Contact form (mailto)
      POST to mailto: is unreliable across browsers — build the mailto: URL
      from the fields instead. Still no backend, nothing leaves the page. */
   function initContactForm() {
@@ -668,8 +624,8 @@
     initCountUp();
     initHeader();
     initContactForm();
+    initAnimatedBands();
     initCarousels();
-    initMatrixRain();
     initFreezeSections();
     initHorizontalGallery();
     initTypewriter();
