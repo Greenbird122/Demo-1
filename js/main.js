@@ -263,21 +263,17 @@
         if (!visual || !images.length) return;
 
         var rect = section.getBoundingClientRect();
-        var stickyTop = parseFloat(getComputedStyle(visual).top) || 0;
-        var vOffset = visual.offsetTop;   // section top -> frame natural top
-        var vHeight = visual.offsetHeight;
         var total = images.length;
-        var idx = 0;
+        var scrollDistance = rect.height - window.innerHeight;
+        var progress = 0;
 
-        /* scroll distance over which the frame actually stays pinned:
-           everything after the frame's natural position reaches its
-           sticky top, until the section bottom meets the frame bottom */
-        var pinned = rect.height - vOffset - vHeight;
-        if (pinned > 0) {
-          var progress = (stickyTop - (rect.top + vOffset)) / pinned;
-          progress = Math.max(0, Math.min(1, progress));
-          idx = Math.min(Math.floor(progress * total), total - 1);
+        if (scrollDistance > 0) {
+          progress = -rect.top / scrollDistance;
+          progress = Math.max(0, Math.min(0.999, progress));
         }
+
+        var idx = Math.floor(progress * total);
+        idx = Math.max(0, Math.min(total - 1, idx));
 
         images.forEach(function (img, i) {
           img.classList.toggle("active", i === idx);
@@ -288,7 +284,6 @@
       });
     }
 
-    /* update on scroll, one calculation per frame — no permanent rAF loop */
     var ticking = false;
     function onScroll() {
       if (ticking) return;
@@ -413,6 +408,10 @@
     if (!track) return;
 
     function update() {
+      if (window.innerWidth <= 820) {
+        track.style.transform = "";
+        return;
+      }
       var rect = section.getBoundingClientRect();
       var total = rect.height - window.innerHeight;
       var progress = total > 0 ? (-rect.top / total) : 0;
